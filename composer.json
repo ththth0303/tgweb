@@ -47,6 +47,20 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "deploy": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "php artisan key:generate",
+            "npm install",
+            "npm run production"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "@deploy"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@deploy"
         ]
     },
     "config": {
