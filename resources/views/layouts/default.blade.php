@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name') }}</title>
 
@@ -20,29 +22,9 @@
 </head>
 
 <body>
-    @include('layouts.includes.header')
-
-    @include('layouts.includes.about')
-
-    @include('layouts.includes.portfolio')
-
-    @include('layouts.includes.service')
-
-    @include('layouts.includes.choose_us')
-
-    @include('layouts.includes.number')
-
-    @include('layouts.includes.pricing')
-
-    @include('layouts.includes.testimonial')
-
-    @include('layouts.includes.team')
-
-    @include('layouts.includes.blog')
-
-    @include('layouts.includes.contact')
-
-    @include('layouts.includes.footer')
+    <div id="app">
+        <router-view></router-view>
+    </div>
 
     <!-- Back to top -->
     <div id="back-to-top"></div>

@@ -6,8 +6,43 @@
  */
 
 require('./bootstrap');
+require('owl.carousel');
 
-window.Vue = require('vue');
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import router from './routes';
+
+window.Vue = Vue;
+Vue.use(VueRouter);
+
+Vue.nextTick(function () {
+    $('#about-slider').owlCarousel({
+        items:1,
+        loop:true,
+        margin:15,
+        nav: true,
+        navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+        dots : true,
+        autoplay : true,
+        animateOut: 'fadeOut'
+    });
+
+    $('#testimonial-slider').owlCarousel({
+        loop:true,
+        margin:15,
+        dots : true,
+        nav: false,
+        autoplay : true,
+        responsive:{
+            0: {
+                items:1
+            },
+            992:{
+                items:2
+            }
+        }
+    });
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +50,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });
