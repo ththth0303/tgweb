@@ -17,7 +17,7 @@ class CreatePricesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->decimal('price', 8, 2);
-            $table->decimal('unit');
+            $table->string('unit');
             $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
