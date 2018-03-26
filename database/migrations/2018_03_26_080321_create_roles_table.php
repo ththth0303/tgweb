@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePricesTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreatePricesTable extends Migration
      */
     public function up()
     {
-        Schema::create('prices', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->decimal('price', 8, 2);
-            $table->string('unit');
-            $table->string('image')->nullable();
-            $table->string('description')->nullable();
+            $table->string('name');
+            $table->boolean('access_admin');
+            $table->json('permission');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreatePricesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prices');
+        Schema::dropIfExists('roles');
     }
 }
