@@ -1,7 +1,9 @@
 <!-- jQuery Plugins -->
-<script type="text/javascript" src="plugins/creative-agency/js/jquery.min.js"></script>
-<script type="text/javascript" src="plugins/creative-agency/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="plugins/creative-agency/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="plugins/creative-agency/js/jquery.magnific-popup.js"></script>
-<script type="text/javascript" src="plugins/creative-agency/js/main.js"></script>
+{!! Html::script('plugins/creative-agency/js/jquery.min.js') !!}
+{!! Html::script('plugins/creative-agency/js/bootstrap.min.js') !!}
+{!! Html::script('plugins/creative-agency/js/owl.carousel.min.js') !!}
+{!! Html::script('plugins/creative-agency/js/jquery.magnific-popup.js') !!}
+{!! Html::script('plugins/creative-agency/js/main.js') !!}
+
+{!! Html::script('js/app.js') !!}
 @yield('script')
