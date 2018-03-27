@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-component></header-component>
+        <header-component :homeInfo="data.home_info"></header-component>
         <about-component></about-component>
         <portfolio-component></portfolio-component>
         <service-component></service-component>
@@ -45,8 +45,22 @@
             contactComponent,
             footerComponent,
         },
+        data: function () {
+            return {
+                data: []
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            var app = this;
+
+            axios.get('/home')
+                .then(response => {
+                    app.data = response.data;
+                })
+                .catch(response => {
+                    console.log(response);
+                    alert("Could not load data.");
+                });
         }
     }
 </script>
