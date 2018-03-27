@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PricesTableSeeder::class,
             ServicesTableSeeder::class,
             RolesTableSeeder::class,
+            HomeInfoTableSeeder::class,
         ]);
     }
 }
