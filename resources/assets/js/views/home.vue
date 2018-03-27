@@ -1,9 +1,9 @@
 <template>
     <div>
         <header-component :homeInfo="data.home_info"></header-component>
-        <about-component></about-component>
+        <about-component :aboutList="data.abouts"></about-component>
         <portfolio-component></portfolio-component>
-        <service-component></service-component>
+        <service-component :serviceList="data.services"></service-component>
         <choose-us-component></choose-us-component>
         <number-component></number-component>
         <pricing-component></pricing-component>
