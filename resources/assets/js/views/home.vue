@@ -2,7 +2,7 @@
     <div>
         <header-component :homeInfo="data.home_info"></header-component>
         <about-component :aboutList="data.abouts"></about-component>
-        <portfolio-component></portfolio-component>
+        <portfolio-component :categories="data.categories"></portfolio-component>
         <service-component :serviceList="data.services"></service-component>
         <choose-us-component></choose-us-component>
         <number-component></number-component>
@@ -21,10 +21,10 @@
     import aboutComponent from './includes/about.vue';
     import portfolioComponent from './includes/portfolio.vue';
     import serviceComponent from './includes/service.vue';
-    import chooseUsComponent from './includes/choose_us.vue'; /*dddd*/
+    import chooseUsComponent from './includes/choose_us.vue';
     import numberComponent from './includes/number.vue';
     import pricingComponent from './includes/pricing.vue';
-    import testimonialComponent from './includes/testimonial.vue'; /*gggg*/
+    import testimonialComponent from './includes/testimonial.vue';
     import teamComponent from './includes/team.vue';
     import blogComponent from './includes/blog.vue';
     import contactComponent from './includes/contact.vue';
