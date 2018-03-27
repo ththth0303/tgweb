@@ -44,6 +44,7 @@ class UsersTableSeeder extends Seeder
             ],
         ];
 
+        DB::table('users')->truncate();
         DB::table('users')->insert($data);
     }
 }

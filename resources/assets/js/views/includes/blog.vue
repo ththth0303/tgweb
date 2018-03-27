@@ -1,95 +1,56 @@
 <template>
-
-<!-- Blog -->
 <div id="blog" class="section md-padding bg-grey">
-
-    <!-- Container -->
     <div class="container">
-
-        <!-- Row -->
         <div class="row">
-
-            <!-- Section header -->
             <div class="section-header text-center">
                 <h2 class="title">Recents news</h2>
             </div>
-            <!-- /Section header -->
-
-            <!-- blog -->
-            <div class="col-md-4">
+            <div class="col-md-4"  v-for="blog in blogList" :key="blog.id">
                 <div class="blog">
                     <div class="blog-img">
-                        <img class="img-responsive" src="plugins/creative-agency/img/blog1.jpg" alt="">
+                        <img class="img-responsive" :src="blog.image" alt="">
                     </div>
                     <div class="blog-content">
                         <ul class="blog-meta">
-                            <li><i class="fa fa-user"></i>John doe</li>
-                            <li><i class="fa fa-clock-o"></i>18 Oct</li>
-                            <li><i class="fa fa-comments"></i>57</li>
+                            <li><i class="fa fa-user"></i>{{ blog.users.name }}</li>
+                            <li><i class="fa fa-clock-o"></i>{{ formatTime(blog.created_at) }}</li>
+                            <li><i class="fa fa-comments"></i>{{ blog.views }}</li>
                         </ul>
-                        <h3>Molestie at elementum eu facilisis sed odio</h3>
-                        <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
+                        <h3>{{ blog.title }}</h3>
+                        <p>{{ blog.content | strlimit(30)}}</p>
                         <a href="blog-single.html">Read more</a>
                     </div>
                 </div>
             </div>
-            <!-- /blog -->
-
-            <!-- blog -->
-            <div class="col-md-4">
-                <div class="blog">
-                    <div class="blog-img">
-                        <img class="img-responsive" src="plugins/creative-agency/img/blog2.jpg" alt="">
-                    </div>
-                    <div class="blog-content">
-                        <ul class="blog-meta">
-                            <li><i class="fa fa-user"></i>John doe</li>
-                            <li><i class="fa fa-clock-o"></i>18 Oct</li>
-                            <li><i class="fa fa-comments"></i>57</li>
-                        </ul>
-                        <h3>Molestie at elementum eu facilisis sed odio</h3>
-                        <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
-                        <a href="blog-single.html">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /blog -->
-
-            <!-- blog -->
-            <div class="col-md-4">
-                <div class="blog">
-                    <div class="blog-img">
-                        <img class="img-responsive"  src="plugins/creative-agency/img/blog3.jpg" alt="">
-                    </div>
-                    <div class="blog-content">
-                        <ul class="blog-meta">
-                            <li><i class="fa fa-user"></i>John doe</li>
-                            <li><i class="fa fa-clock-o"></i>18 Oct</li>
-                            <li><i class="fa fa-comments"></i>57</li>
-                        </ul>
-                        <h3>Molestie at elementum eu facilisis sed odio</h3>
-                        <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
-                        <a href="blog-single.html">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /blog -->
-
         </div>
-        <!-- /Row -->
-
     </div>
-    <!-- /Container -->
-
 </div>
-<!-- /Blog -->
-
 </template>
 
 <script>
-  export default {
-    mounted() {
-      console.log('blog component');
+    export default {
+        props: {
+            blogList: {
+                required: true,
+                default: () => []
+            }
+        },
+        filters: {
+            strlimit(value, length) {
+                value = value.substr(0, length);
+
+                return value.substr(0, Math.min(value.length, value.lastIndexOf(" ")));
+            }
+        },
+        mounted() {
+            //
+        },
+        methods: {
+            formatTime: (time) => {
+               let myDate = new Date(time);
+               let part = myDate.toDateString().split(' ');
+               return part[2] + ' ' + part[1];
+           }
+        }
     }
-  }
 </script>

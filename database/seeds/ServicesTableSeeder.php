@@ -33,6 +33,7 @@ class ServicesTableSeeder extends Seeder
             ],
         ];
 
+        DB::table('services')->truncate();
         DB::table('services')->insert($data);
     }
 }
