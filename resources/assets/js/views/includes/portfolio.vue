@@ -16,95 +16,19 @@
             <!-- /Section header -->
 
             <!-- Work -->
-            <div class="col-md-4 col-xs-6 work">
-                <img class="img-responsive" src="plugins/creative-agency/img/work1.jpg" alt="">
+            <div class="col-md-4 col-xs-6 work" v-for="category in categories">
+                <img class="img-responsive" :src="category.image" alt="">
                 <div class="overlay"></div>
                 <div class="work-content">
-                    <span>Category</span>
-                    <h3>Lorem ipsum dolor</h3>
+                    <span>{{ category.name }}</span>
+                    <h3>{{ category.description | strlimit(25) }}</h3>
                     <div class="work-link">
                         <a href="#"><i class="fa fa-external-link"></i></a>
-                        <a class="lightbox" href="plugins/creative-agency/img/work1.jpg"><i class="fa fa-search"></i></a>
+                        <a class="lightbox" :href="category.image"><i class="fa fa-search"></i></a>
                     </div>
                 </div>
             </div>
             <!-- /Work -->
-
-            <!-- Work -->
-            <div class="col-md-4 col-xs-6 work">
-                <img class="img-responsive" src="plugins/creative-agency/img/work2.jpg" alt="">
-                <div class="overlay"></div>
-                <div class="work-content">
-                    <span>Category</span>
-                    <h3>Lorem ipsum dolor</h3>
-                    <div class="work-link">
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                        <a class="lightbox" href="plugins/creative-agency/img/work2.jpg"><i class="fa fa-search"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /Work -->
-
-            <!-- Work -->
-            <div class="col-md-4 col-xs-6 work">
-                <img class="img-responsive" src="plugins/creative-agency/img/work3.jpg" alt="">
-                <div class="overlay"></div>
-                <div class="work-content">
-                    <span>Category</span>
-                    <h3>Lorem ipsum dolor</h3>
-                    <div class="work-link">
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                        <a class="lightbox" href="plugins/creative-agency/img/work3.jpg"><i class="fa fa-search"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /Work -->
-
-            <!-- Work -->
-            <div class="col-md-4 col-xs-6 work">
-                <img class="img-responsive" src="plugins/creative-agency/img/work4.jpg" alt="">
-                <div class="overlay"></div>
-                <div class="work-content">
-                    <span>Category</span>
-                    <h3>Lorem ipsum dolor</h3>
-                    <div class="work-link">
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                        <a class="lightbox" href="plugins/creative-agency/img/work4.jpg"><i class="fa fa-search"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /Work -->
-
-            <!-- Work -->
-            <div class="col-md-4 col-xs-6 work">
-                <img class="img-responsive" src="plugins/creative-agency/img/work5.jpg" alt="">
-                <div class="overlay"></div>
-                <div class="work-content">
-                    <span>Category</span>
-                    <h3>Lorem ipsum dolor</h3>
-                    <div class="work-link">
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                        <a class="lightbox" href="plugins/creative-agency/img/work5.jpg"><i class="fa fa-search"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /Work -->
-
-            <!-- Work -->
-            <div class="col-md-4 col-xs-6 work">
-                <img class="img-responsive" src="plugins/creative-agency/img/work6.jpg" alt="">
-                <div class="overlay"></div>
-                <div class="work-content">
-                    <span>Category</span>
-                    <h3>Lorem ipsum dolor</h3>
-                    <div class="work-link">
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                        <a class="lightbox" href="plugins/creative-agency/img/work6.jpg"><i class="fa fa-search"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /Work -->
-
         </div>
         <!-- /Row -->
 
@@ -118,8 +42,20 @@
 
 <script>
     export default {
+        props: {
+            categories: {
+                required: true,
+                default: () => []
+            }
+        },
+        filters: {
+            strlimit(value, length) {
+                value = value.substr(0, length);
+
+                return value.substr(0, Math.min(value.length, value.lastIndexOf(" ")));
+            }
+        },
         mounted() {
-            console.log('portfolio component');
         }
     }
 </script>
