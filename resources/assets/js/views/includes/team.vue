@@ -16,63 +16,21 @@
             <!-- /Section header -->
 
             <!-- team -->
-            <div class="col-sm-4">
+            <div class="col-sm-4" v-for="user in users">
                 <div class="team">
                     <div class="team-img">
-                        <img class="img-responsive" src="plugins/creative-agency/img/team1.jpg" alt="">
+                        <img class="img-responsive" :src="user.avatar" alt="">
                         <div class="overlay">
                             <div class="team-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a :href="'https:fb.com/' + socialLink(user.social_network, 1)"><i class="fa fa-facebook"></i></a>
+                                <a :href="'https://plus.google.com/' + socialLink(user.social_network, 2)"><i class="fa fa-google-plus"></i></a>
+                                <a :href="'https://twitter.com/' + socialLink(user.social_network, 3)"><i class="fa fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="team-content">
-                        <h3>John Doe</h3>
-                        <span>Web Designer</span>
-                    </div>
-                </div>
-            </div>
-            <!-- /team -->
-
-            <!-- team -->
-            <div class="col-sm-4">
-                <div class="team">
-                    <div class="team-img">
-                        <img class="img-responsive" src="plugins/creative-agency/img/team2.jpg" alt="">
-                        <div class="overlay">
-                            <div class="team-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h3>John Doe</h3>
-                        <span>Web Designer</span>
-                    </div>
-                </div>
-            </div>
-            <!-- /team -->
-
-            <!-- team -->
-            <div class="col-sm-4">
-                <div class="team">
-                    <div class="team-img">
-                        <img class="img-responsive" src="plugins/creative-agency/img/team3.jpg" alt="">
-                        <div class="overlay">
-                            <div class="team-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h3>John Doe</h3>
-                        <span>Web Designer</span>
+                        <h3>{{ user.name }}</h3>
+                        <span>{{ user.job }}</span>
                     </div>
                 </div>
             </div>
@@ -91,8 +49,26 @@
 
 <script>
     export default {
+        props: {
+            users: {
+                required: true,
+                default: () => []
+            }
+        },
         mounted() {
             console.log('team component');
+        },
+        methods: {
+            socialLink(obj, type) {
+
+                let socialObj = obj.find(social => social.type === type);
+
+                if (socialObj != undefined) {
+                    return socialObj.social_id;
+                }
+
+                return '#';
+            }
         }
     }
 </script>

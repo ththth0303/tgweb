@@ -11,6 +11,7 @@ require('owl.carousel');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from './routes';
+import filter from './filters';
 
 window.Vue = Vue;
 Vue.use(VueRouter);
@@ -25,22 +26,6 @@ Vue.nextTick(function () {
         dots : true,
         autoplay : true,
         animateOut: 'fadeOut'
-    });
-
-    $('#testimonial-slider').owlCarousel({
-        loop:true,
-        margin:15,
-        dots : true,
-        nav: false,
-        autoplay : true,
-        responsive:{
-            0: {
-                items:1
-            },
-            992:{
-                items:2
-            }
-        }
     });
 });
 

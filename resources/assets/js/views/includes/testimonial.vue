@@ -20,27 +20,15 @@
                 <div id="testimonial-slider" class="owl-carousel owl-theme">
 
                     <!-- testimonial -->
-                    <div class="testimonial">
+                    <div class="testimonial" v-for="user in users">
                         <div class="testimonial-meta">
-                            <img src="plugins/creative-agency/img/perso1.jpg" alt="">
-                            <h3 class="white-text">John Doe</h3>
-                            <span>Web Designer</span>
+                            <img :src="user.avatar" alt="">
+                            <h3 class="white-text">{{ user.name }}</h3>
+                            <span>{{ user.job }}</span>
                         </div>
-                        <p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+                        <p class="white-text">{{ user.description }}</p>
                     </div>
                     <!-- /testimonial -->
-
-                    <!-- testimonial -->
-                    <div class="testimonial">
-                        <div class="testimonial-meta">
-                            <img src="plugins/creative-agency/img/perso2.jpg" alt="">
-                            <h3 class="white-text">John Doe</h3>
-                            <span>Web Designer</span>
-                        </div>
-                        <p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
-                    </div>
-                    <!-- /testimonial -->
-
                 </div>
             </div>
             <!-- /Testimonial slider -->
@@ -57,8 +45,31 @@
 
 <script>
     export default {
+        props: {
+            users: {
+                required: true,
+                default: () => []
+            }
+        },
         mounted() {
             console.log('testimonial component');
+        },
+        updated() {
+            $('#testimonial-slider').owlCarousel({
+                loop:true,
+                margin:15,
+                dots : true,
+                nav: false,
+                autoplay : true,
+                responsive:{
+                    0: {
+                        items:1
+                    },
+                    992:{
+                        items:2
+                    }
+                }
+            });
         }
     }
 </script>
