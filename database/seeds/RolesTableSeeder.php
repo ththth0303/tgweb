@@ -24,6 +24,7 @@ class RolesTableSeeder extends Seeder
             ]
         ];
 
+        DB::table('roles')->truncate();
         DB::table('roles')->insert($data);
     }
 }

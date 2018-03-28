@@ -29,6 +29,7 @@ class ContactsTableSeeder extends Seeder
             ],
         ];
 
+        DB::table('contacts')->truncate();
         DB::table('contacts')->insert($data);
     }
 }

@@ -14,13 +14,32 @@ class PostTableSeeder extends Seeder
         $faker = Faker\Factory::create();
         $data = [
             [
-                'title' => 'Molestie at elementum eu facilisis sed odio',
+                'title' => $faker->realText(100, 2),
                 'user_id' => 1,
                 'content' => $faker->realText(500, 2),
-                'short_description' => $faker->realText(200, 2)
+                'image' => 'plugins/creative-agency/img/blog1.jpg',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title' => $faker->realText(100, 2),
+                'user_id' => 2,
+                'content' => $faker->realText(500, 2),
+                'image' => 'plugins/creative-agency/img/blog1.jpg',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title' => $faker->realText(100, 2),
+                'user_id' => 3,
+                'content' => $faker->realText(500, 2),
+                'image' => 'plugins/creative-agency/img/blog1.jpg',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
             ]
         ];
 
+        DB::table('posts')->truncate();
         DB::table('posts')->insert($data);
     }
 }

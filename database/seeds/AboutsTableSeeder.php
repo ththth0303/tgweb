@@ -34,6 +34,7 @@ class AboutsTableSeeder extends Seeder
             ],
         ];
 
+        DB::table('abouts')->truncate();
         DB::table('abouts')->insert($data);
     }
 }

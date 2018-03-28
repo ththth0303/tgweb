@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facedes\DB;
 use App\Models\HomeInfo;
 use Faker\Factory as Faker;
 
@@ -16,6 +15,7 @@ class HomeInfoTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        HomeInfo::truncate();
         HomeInfo::create([
             'title' => 'WE ARE CREATIVE AGENCY',
             'content' => $faker->realText(200),

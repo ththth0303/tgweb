@@ -9,7 +9,7 @@
         <pricing-component></pricing-component>
         <testimonial-component></testimonial-component>
         <team-component></team-component>
-        <blog-component></blog-component>
+        <blog-component :blogList="data.blogs"></blog-component>
         <contact-component></contact-component>
         <footer-component></footer-component>
     </div>

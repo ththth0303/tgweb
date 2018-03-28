@@ -29,6 +29,7 @@ class PricesTableSeeder extends Seeder
             ],
         ];
 
+        DB::table('prices')->truncate();
         DB::table('prices')->insert($data);
     }
 }

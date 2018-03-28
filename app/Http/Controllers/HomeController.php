@@ -7,6 +7,7 @@ use App\Models\HomeInfo;
 use App\Models\About;
 use App\Models\Service;
 use App\Models\Category;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -17,6 +18,7 @@ class HomeController extends Controller
             'abouts' => About::all(),
             'services' => Service::all(),
             'categories' => Category::all(),
+            'blogs' => Post::with('users')->get(),
         ];
 
         return response()->json($data);
