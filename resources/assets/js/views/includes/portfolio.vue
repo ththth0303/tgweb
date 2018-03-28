@@ -21,7 +21,7 @@
                 <div class="overlay"></div>
                 <div class="work-content">
                     <span>{{ category.name }}</span>
-                    <h3>{{ category.description | strlimit(25) }}</h3>
+                    <h3>{{ category.description | strlimit(25, '') }}</h3>
                     <div class="work-link">
                         <a href="#"><i class="fa fa-external-link"></i></a>
                         <a class="lightbox" :href="category.image"><i class="fa fa-search"></i></a>
@@ -46,13 +46,6 @@
             categories: {
                 required: true,
                 default: () => []
-            }
-        },
-        filters: {
-            strlimit(value, length) {
-                value = value.substr(0, length);
-
-                return value.substr(0, Math.min(value.length, value.lastIndexOf(" ")));
             }
         },
         mounted() {

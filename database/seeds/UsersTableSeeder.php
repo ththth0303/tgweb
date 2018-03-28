@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,6 +12,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
+
         $data = [
             [
                 'name' => 'Nguyễn Văn Giang',
@@ -21,6 +24,9 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 1,
                 'status' => 1,
                 'password' => bcrypt('123456'),
+                'job' => $faker->jobTitle,
+                'description' => $faker->realText(100),
+                'avatar' => 'plugins/creative-agency/img/team1.jpg',
             ],
             [
                 'name' => 'Ngô Trung Thắng',
@@ -31,6 +37,9 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 1,
                 'status' => 1,
                 'password' => bcrypt('123456'),
+                'job' => $faker->jobTitle,
+                'description' => $faker->realText(100),
+                'avatar' => 'plugins/creative-agency/img/team2.jpg',
             ],
             [
                 'name' => 'Admin',
@@ -41,6 +50,9 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 0,
                 'status' => 1,
                 'password' => bcrypt('123456'),
+                'job' => $faker->jobTitle,
+                'description' => $faker->realText(100),
+                'avatar' => 'plugins/creative-agency/img/team3.jpg',
             ],
         ];
 

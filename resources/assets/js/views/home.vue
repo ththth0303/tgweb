@@ -7,8 +7,8 @@
         <choose-us-component></choose-us-component>
         <number-component></number-component>
         <pricing-component></pricing-component>
-        <testimonial-component></testimonial-component>
-        <team-component></team-component>
+        <testimonial-component :users="data.users"></testimonial-component>
+        <team-component :users="data.users"></team-component>
         <blog-component :blogList="data.blogs"></blog-component>
         <contact-component></contact-component>
         <footer-component></footer-component>
