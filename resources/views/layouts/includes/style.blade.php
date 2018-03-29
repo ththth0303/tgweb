@@ -17,4 +17,6 @@
 <!-- Custom stlylesheet -->
 {!! Html::style('plugins/creative-agency/css/style.css') !!}
 
+{!! Html::style('css/default.css') !!}
+
 @yield('style')
