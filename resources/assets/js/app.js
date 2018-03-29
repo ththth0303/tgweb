@@ -16,19 +16,6 @@ import filter from './filters';
 window.Vue = Vue;
 Vue.use(VueRouter);
 
-Vue.nextTick(function () {
-    $('#about-slider').owlCarousel({
-        items:1,
-        loop:true,
-        margin:15,
-        nav: true,
-        navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        dots : true,
-        autoplay : true,
-        animateOut: 'fadeOut'
-    });
-});
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

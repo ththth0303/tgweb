@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ServicesTableSeeder::class,
             RolesTableSeeder::class,
             HomeInfoTableSeeder::class,
+            WhyChooseUsTable::class,
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

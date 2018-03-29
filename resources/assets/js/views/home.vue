@@ -4,7 +4,7 @@
         <about-component :aboutList="data.abouts"></about-component>
         <portfolio-component :categories="data.categories"></portfolio-component>
         <service-component :serviceList="data.services"></service-component>
-        <choose-us-component></choose-us-component>
+        <choose-us-component :chooseUs="data.choose_us"></choose-us-component>
         <number-component></number-component>
         <pricing-component></pricing-component>
         <testimonial-component :users="data.users"></testimonial-component>

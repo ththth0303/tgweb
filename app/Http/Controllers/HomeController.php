@@ -8,6 +8,7 @@ use App\Models\About;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\WhyChooseUs;
 use App\Models\User;
 
 class HomeController extends Controller
@@ -21,6 +22,7 @@ class HomeController extends Controller
             'categories' => Category::all(),
             'blogs' => Post::with('users')->get(),
             'users' => User::with('social_network')->limit(config('parameters.home.our_team_limit'))->get(),
+            'choose_us' => WhyChooseUs::first(),
         ];
 
         return response()->json($data);
