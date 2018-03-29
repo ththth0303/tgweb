@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\WhyChooseUs;
 use App\Models\User;
+use App\Models\Price;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
             'blogs' => Post::with('users')->get(),
             'users' => User::with('social_network')->limit(config('parameters.home.our_team_limit'))->get(),
             'choose_us' => WhyChooseUs::first(),
+            'prices' => Price::all(),
         ];
 
         return response()->json($data);
