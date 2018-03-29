@@ -30,7 +30,7 @@
                 default: () => []
             }
         },
-        mounted() {      
+        mounted() {
         },
         methods: {
            //
