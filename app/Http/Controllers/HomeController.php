@@ -11,6 +11,7 @@ use App\Models\Post;
 use App\Models\WhyChooseUs;
 use App\Models\User;
 use App\Models\Price;
+use App\Models\Contact;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
             'users' => User::with('social_network')->limit(config('parameters.home.our_team_limit'))->get(),
             'choose_us' => WhyChooseUs::first(),
             'prices' => Price::all(),
+            'contacts' => Contact::all(),
         ];
 
         return response()->json($data);

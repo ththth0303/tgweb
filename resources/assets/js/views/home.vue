@@ -10,8 +10,8 @@
         <testimonial-component :users="data.users"></testimonial-component>
         <team-component :users="data.users"></team-component>
         <blog-component :blogList="data.blogs"></blog-component>
-        <contact-component></contact-component>
-        <footer-component></footer-component>
+        <contact-component :contactList="data.contacts"></contact-component>
+        <footer-component :socialList="data.contacts"></footer-component>
     </div>
 </template>
 
