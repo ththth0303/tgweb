@@ -6,7 +6,7 @@
         <service-component :serviceList="data.services"></service-component>
         <choose-us-component :chooseUs="data.choose_us"></choose-us-component>
         <number-component></number-component>
-        <pricing-component></pricing-component>
+        <pricing-component :priceList="data.prices"></pricing-component>
         <testimonial-component :users="data.users"></testimonial-component>
         <team-component :users="data.users"></team-component>
         <blog-component :blogList="data.blogs"></blog-component>
